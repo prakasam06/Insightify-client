@@ -3,6 +3,7 @@ import Signin from "./pages/Signin";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
+import { CreateForm } from "./pages/CreateForm";
 
 const routes = [
   {
@@ -36,6 +37,12 @@ const routes = [
     title: "Signup",
     private: false,
     element: <Signup />,
+  },
+  {
+    path: "/createForm",
+    title: "Create Form",
+    private: false,
+    element: <CreateForm />,
   },
 ];
 

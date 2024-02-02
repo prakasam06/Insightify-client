@@ -21,10 +21,7 @@ export const signout = async () => {
 export const signup = async (values) => {
   try {
     console.log(values);
-    const res = await axios.post(
-      "users/signup",
-      { ...values },
-    );
+    const res = await axios.post("users/signup", { ...values });
     return res.data.data;
   } catch (err) {
     return Promise.reject(err.response.data);

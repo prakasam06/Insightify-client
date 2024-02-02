@@ -22,7 +22,7 @@ const Signup = () => {
       passwordConfirm: passwordConfirmRef.current.value,
     });
   };
-  
+
   return (
     <Container>
       <h1>Sign Up</h1>
