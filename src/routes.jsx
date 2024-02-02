@@ -3,6 +3,7 @@ import Signin from "./pages/Signin";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import Signup from "./pages/Signup";
+import CreatePoll from "./pages/CreatePoll";
 
 const routes = [
   {
@@ -36,6 +37,12 @@ const routes = [
     title: "Signup",
     private: false,
     element: <Signup />,
+  },
+  {
+    path: "/createpoll",
+    title: "CreatePoll",
+    private: false,
+    element: <CreatePoll />,
   },
 ];
 
