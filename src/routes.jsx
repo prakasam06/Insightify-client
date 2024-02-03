@@ -1,15 +1,17 @@
-import Index from "./pages/Index";
-import Signin from "./pages/Signin";
-import Navbar from "./components/Navbar";
-import Dashboard from "./pages/Dashboard";
-import Signup from "./pages/Signup";
-import { CreateForm } from "./pages/CreateForm";
-import CreatePoll from "./pages/CreatePoll";
+import Index from './pages/Index';
+import Signin from './pages/Signin';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import Signup from './pages/Signup';
+import { CreateForm } from './pages/CreateForm';
+import CreatePoll from './pages/CreatePoll';
+import ViewForm from './pages/ViewForm';
+import ViewPolls from './pages/ViewPolls';
 
 const routes = [
   {
-    path: "/",
-    title: "Index Page",
+    path: '/',
+    title: 'Index Page',
     private: false,
     element: (
       <>
@@ -18,14 +20,14 @@ const routes = [
     ),
   },
   {
-    path: "/signin",
-    title: "Signin",
+    path: '/signin',
+    title: 'Signin',
     private: false,
     element: <Signin />,
   },
   {
-    path: "/dashboard",
-    title: "Dashboard",
+    path: '/dashboard',
+    title: 'Dashboard',
     private: false,
     element: (
       <Navbar>
@@ -34,22 +36,50 @@ const routes = [
     ),
   },
   {
-    path: "/signup",
-    title: "Signup",
+    path: '/signup',
+    title: 'Signup',
     private: false,
     element: <Signup />,
   },
   {
-    path: "/createForm",
-    title: "Create Form",
+    path: '/forms/:id',
+    title: 'View Form',
     private: false,
-    element: <CreateForm />,
+    element: (
+      <Navbar>
+        <ViewForm />
+      </Navbar>
+    ),
   },
   {
-    path: "/createpoll",
-    title: "CreatePoll",
+    path: '/polls/:id',
+    title: 'View Polls',
     private: false,
-    element: <CreatePoll />,
+    element: (
+      <Navbar>
+        <ViewPolls />
+      </Navbar>
+    ),
+  },
+  {
+    path: '/forms/create',
+    title: 'Create Form',
+    private: false,
+    element: (
+      <Navbar>
+        <CreateForm />
+      </Navbar>
+    ),
+  },
+  {
+    path: '/polls/create',
+    title: 'CreatePoll',
+    private: false,
+    element: (
+      <Navbar>
+        <CreatePoll />
+      </Navbar>
+    ),
   },
 ];
 
