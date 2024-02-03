@@ -2,7 +2,7 @@ import axios from '../config/axios';
 
 export const createPoll = async (values) => {
   try {
-    const res = await axios.post('polls', { ...values });
+    const res = await axios.post('polls/structure/', { ...values });
     return res.data.data;
   } catch (err) {
     return Promise.reject(err.response.data);
