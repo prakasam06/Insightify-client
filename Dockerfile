@@ -8,7 +8,7 @@ RUN npm install -g pnpm
 
 RUN pnpm install
 
-RUN pnpm build
+RUN pnpm run build --mode production
 
 EXPOSE 4713
 

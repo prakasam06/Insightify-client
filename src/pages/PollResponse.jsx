@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 export const PollResponse = () => {
   const params = useParams().pollId;
   useEffect(() => {
+   0
     const chatSocket = io('http://localhost:3000/chat/pollresp');
 
     chatSocket.emit('joinPollRoom', params);
