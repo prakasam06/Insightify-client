@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  app:
+    build: ./
+    restart: unless-stopped
+    ports:
+      - 4713:4713
+    stdin_open: true
+    tty: true
