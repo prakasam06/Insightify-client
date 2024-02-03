@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import * as auth from "../api/auth";
-import Loading from "./../components/Loading";
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as auth from '../api/auth';
+import Loading from './../components/Loading';
 
 const JWTAuthContext = React.createContext();
 
@@ -27,7 +27,7 @@ const JWTAuthenticationProvider = ({ children }) => {
       setCurrentUser(res.user);
       setLoading(false);
       setIsAuthenticated(true);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -41,7 +41,7 @@ const JWTAuthenticationProvider = ({ children }) => {
       setCurrentUser(undefined);
       setIsAuthenticated(false);
       setLoading(false);
-      navigate("/");
+      navigate('/');
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -55,7 +55,7 @@ const JWTAuthenticationProvider = ({ children }) => {
       setCurrentUser(res.user);
       setLoading(false);
       setIsAuthenticated(true);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -68,7 +68,7 @@ const JWTAuthenticationProvider = ({ children }) => {
       const res = await auth.updateUserData(data);
       setCurrentUser(res.user);
       setLoading(false);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (err) {
       setLoading(false);
       setError(err);
@@ -80,12 +80,12 @@ const JWTAuthenticationProvider = ({ children }) => {
       const res = await auth.updatePassword(
         currentPassword,
         password,
-        passwordConfirm,
+        passwordConfirm
       );
       setCurrentUser(res.user);
       setLoading(false);
       setIsAuthenticated(true);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (err) {
       setError(err);
       setLoading(false);
@@ -110,11 +110,11 @@ const JWTAuthenticationProvider = ({ children }) => {
       setCurrentUser(res.user);
       setLoading(false);
       setIsAuthenticated(true);
-      navigate("/dashboard");
+      navigate('/dashboard');
     } catch (err) {
       if (!user) {
         return next(
-          new AppError(`There is no user with this email address !`, 404),
+          new AppError(`There is no user with this email address !`, 404)
         );
       }
       setError(err);
@@ -130,7 +130,7 @@ const JWTAuthenticationProvider = ({ children }) => {
         setCurrentUser(user.user);
         setLoading(false);
         setIsAuthenticated(true);
-        navigate("/dashboard");
+        navigate('/dashboard');
       })
       .catch((err) => {
         setError(err);
