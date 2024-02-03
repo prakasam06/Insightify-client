@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { getFormStructure } from '../api/forms';
-import { useParams } from 'react-router-dom';
+import { useState } from "react";
+import { useEffect } from "react";
+import { getFormStructure } from "../api/forms";
+import { useParams } from "react-router-dom";
 
 const ViewForm = () => {
   const [form, setForm] = useState(null);
