@@ -9,7 +9,7 @@ import ViewForm from './pages/ViewForm';
 import ViewPolls from './pages/ViewPolls';
 import Profile from './pages/Profile';
 import { PollResponse } from "./pages/PollResponse";
-import { SubmitPoll } from './pages/SubmitPoll';
+// import { SubmitPoll } from './pages/SubmitPoll';
 import FormResponse from "./pages/FormResponse";
 
 const routes = [
@@ -111,12 +111,12 @@ const routes = [
     private:"false",
     element: <PollResponse/>,
   },
-  {
-    path: "/submitpoll/:pollId",
-    title:"pollResponses",
-    private:"false",
-    element: <SubmitPoll/>,
-  }
+  // {
+  //   path: "/submitpoll/:pollId",
+  //   title:"pollResponses",
+  //   private:"false",
+  //   element: <SubmitPoll/>,
+  // }
 ];
 
 export default routes;
