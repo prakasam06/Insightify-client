@@ -10,6 +10,7 @@ import ViewPolls from './pages/ViewPolls';
 import Profile from './pages/Profile';
 import { PollResponse } from "./pages/PollResponse";
 import { SubmitPoll } from './pages/SubmitPoll';
+import FormResponse from "./pages/FormResponse";
 
 const routes = [
   {
@@ -55,8 +56,18 @@ const routes = [
     ),
   },
   {
-    path: '/polls/:id',
-    title: 'View Polls',
+    path: "/formResponses/:id",
+    title: "View Form Responses",
+    private: false,
+    element: (
+      <Navbar>
+        <FormResponse />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/polls/:id",
+    title: "View Polls",
     private: false,
     element: (
       <Navbar>

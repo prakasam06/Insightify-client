@@ -1,53 +1,83 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
-import Form from "react-bootstrap/Form";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import { useState, useEffect, useRef } from "react";
-import InputGroup from "react-bootstrap/InputGroup";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import { useState } from 'react';
+import InputGroup from 'react-bootstrap/InputGroup';
+import { useRef } from 'react';
+import { createPoll } from '../api/polls';
+import { useNavigate } from 'react-router-dom';
 
 const CreatePoll = () => {
-  const [pollStructure, setpollStructure] = useState({
-    question: "",
-    options: [],
-  });
+  const [pollOptions, setpollOptions] = useState([]);
+  const navigate = useNavigate();
 
-  const option = {
-    value: "",
-    id: Date.now(),
-    innerText: "",
+  const optionRef = useRef(null);
+  const questionRef = useRef(null);
+  const addOption = () => {
+    let option = {
+      value: '',
+      id: Date.now(),
+      innerText: '',
+    };
+    option.value = optionRef.current.value;
+    option.innerText = optionRef.current.value;
+    setpollOptions((prevState) => [...prevState, option]);
+    optionRef.current.value = '';
   };
 
-  const arr = [];
-
-  const addOption = () => {
-    setpollStructure((prevState) => ({
-      ...prevState,
-      options: [...prevState.options, option],
-    }));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      question: questionRef.current.value,
+      options: pollOptions,
+    };
+    await createPoll(data);
+    alert('Poll created successfully');
+    navigate('/dashboard');
   };
 
   return (
     <Container>
-      <InputGroup className="mb-3 mt-5">
-        <Form.Control aria-label="Example text with two button addons" />
-        <Button variant="outline-secondary" onClick={() => addOption()}>
-          Add Option
+      <h3 className='my-5'>Create Polls</h3>
+      <Form.Label htmlFor='inputPassword5'>
+        Enter the question of the poll
+      </Form.Label>
+      <Form.Control
+        ref={questionRef}
+        type='type'
+        id='inputPassword5'
+        aria-describedby='passwordHelpBlock'
+      />
+      {pollOptions.length !== 0 && (
+        <Form.Label htmlFor='inputPassword5' className='my-3'>
+          Options
+        </Form.Label>
+      )}
+      <ul>
+        {pollOptions.map((option) => (
+          <li key={option.id}>{option.innerText}</li>
+        ))}
+      </ul>
+      <Form.Label htmlFor='inputPassword5' className='my-3'>
+        Add Options
+      </Form.Label>
+      <InputGroup className=''>
+        <Form.Control
+          placeholder='Enter the option'
+          aria-label="Recipient's username"
+          aria-describedby='basic-addon2'
+          ref={optionRef}
+        />
+        <Button
+          variant='outline-secondary'
+          id='button-addon2'
+          onClick={() => addOption()}>
+          Add
         </Button>
-        <Button variant="outline-secondary">Clear All</Button>
       </InputGroup>
-
-      <optionInp />
-      {pollStructure.options.map((option, key) => (
-        <InputGroup className="mb-3 mt-5" key={key}>
-          <Form.Control aria-label="Example text with two button addons" />
-          <Button variant="outline-secondary" onClick={() => addOption()}>
-            Add Option
-          </Button>
-          <Button variant="outline-secondary">Clear All</Button>
-        </InputGroup>
-      ))}
+      <Button className='my-5' onClick={handleSubmit}>
+        Create Poll
+      </Button>
     </Container>
   );
 };

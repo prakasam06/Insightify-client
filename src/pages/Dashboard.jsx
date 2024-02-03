@@ -32,7 +32,7 @@ const Dashboard = () => {
 
       <div className='py-5'>
         <h3>Recents</h3>
-        {recents && recents.length === 0 ? (
+        {recents && recents.length !== 0 ? (
           <Table striped hover className='border rounded'>
             <thead>
               <tr>
@@ -70,7 +70,7 @@ const Dashboard = () => {
           </Table>
         ) : (
           <center>
-            <h5>Create a form or poll</h5>
+            <h3>Create a form or poll</h3>
           </center>
         )}
       </div>
