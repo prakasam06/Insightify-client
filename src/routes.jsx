@@ -8,9 +8,8 @@ import CreatePoll from './pages/CreatePoll';
 import ViewForm from './pages/ViewForm';
 import ViewPolls from './pages/ViewPolls';
 import Profile from './pages/Profile';
-import { PollResponse } from "./pages/PollResponse";
-import { SubmitPoll } from './pages/SubmitPoll';
-import FormResponse from "./pages/FormResponse";
+import { PollResponse } from './pages/PollResponse';
+import FormResponse from './pages/FormResponse';
 
 const routes = [
   {
@@ -56,8 +55,8 @@ const routes = [
     ),
   },
   {
-    path: "/formResponses/:id",
-    title: "View Form Responses",
+    path: '/formResponses/:id',
+    title: 'View Form Responses',
     private: false,
     element: (
       <Navbar>
@@ -66,8 +65,8 @@ const routes = [
     ),
   },
   {
-    path: "/polls/:id",
-    title: "View Polls",
+    path: '/polls/:id',
+    title: 'View Polls',
     private: false,
     element: (
       <Navbar>
@@ -106,17 +105,15 @@ const routes = [
     ),
   },
   {
-    path: "/pollresponses/:pollId",
-    title:"pollResponsesAnalytics",
-    private:"false",
-    element: <PollResponse/>,
+    path: '/pollresponses/:pollId',
+    title: 'pollResponsesAnalytics',
+    private: 'false',
+    element: (
+      <Navbar>
+        <PollResponse />
+      </Navbar>
+    ),
   },
-  {
-    path: "/submitpoll/:pollId",
-    title:"pollResponses",
-    private:"false",
-    element: <SubmitPoll/>,
-  }
 ];
 
 export default routes;
