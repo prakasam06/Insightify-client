@@ -53,6 +53,11 @@ const Dashboard = () => {
                   >
                     <Button>View</Button>
                   </Link>
+                  <Link
+                    to={`/${item.formJson ? "formResponses" : "polls"}/${item._id}` }
+                  >
+                    <Button>View Responses</Button>
+                  </Link>
                   <Button
                     className="bg-danger"
                     onClick={() =>

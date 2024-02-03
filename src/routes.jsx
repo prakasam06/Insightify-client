@@ -7,6 +7,7 @@ import { CreateForm } from "./pages/CreateForm";
 import CreatePoll from "./pages/CreatePoll";
 import ViewForm from "./pages/ViewForm";
 import ViewPolls from "./pages/ViewPolls";
+import FormResponse from "./pages/FormResponse";
 
 const routes = [
   {
@@ -48,6 +49,16 @@ const routes = [
     element: (
       <Navbar>
         <ViewForm />
+      </Navbar>
+    ),
+  },
+  {
+    path: "/formResponses/:id",
+    title: "View Form Responses",
+    private: false,
+    element: (
+      <Navbar>
+        <FormResponse />
       </Navbar>
     ),
   },

@@ -29,7 +29,7 @@ const Signin = () => {
         <br />
         <Form.Label>Password</Form.Label>
         <Form.Control
-          type="text"
+          type="password"
           placeholder="Enter Password"
           ref={passwordRef}
           required

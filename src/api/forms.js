@@ -18,3 +18,13 @@ export const getFormStructure = async (formId) => {
     return Promise.reject(err.response.data);
   }
 };
+
+
+export const handleUserFormSubmission = async (formId, responseJson) => {
+  try {
+    const res = await axios.post(`formResponses/`, { formId, responseJson });
+    return res;
+  } catch (err) {
+    return Promise.reject(err.response.data);
+  }
+};
