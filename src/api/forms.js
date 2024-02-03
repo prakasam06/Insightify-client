@@ -1,8 +1,8 @@
-import axios from "../config/axios";
+import axios from '../config/axios';
 
 export const deleteForm = async (formId) => {
   try {
-    const res = await axios.delete("forms/", { id: formId });
+    const res = await axios.delete('forms/', { id: formId });
     console.log(res);
     return res.data;
   } catch (err) {
