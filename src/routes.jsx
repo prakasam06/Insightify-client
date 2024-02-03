@@ -42,7 +42,7 @@ const routes = [
   {
     path: "/createForm",
     title: "Create Form",
-    private: false,
+    private: true,
     element: <CreateForm />,
   },
   {

@@ -6,6 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <span onClick={signOut}>Sigout</span>
+      <Link to="/createForm">Create Form</Link>
     </div>
   );
 };
