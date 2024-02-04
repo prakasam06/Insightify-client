@@ -10,6 +10,6 @@ RUN pnpm install
 
 RUN pnpm run build --mode production
 
-EXPOSE 4713
+EXPOSE 4173
 
 CMD ["pnpm", "preview"]
